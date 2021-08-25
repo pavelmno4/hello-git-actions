@@ -10,7 +10,7 @@ public class HelloController {
     @GetMapping("/hello")
     public String greeting(@RequestParam(required = false) String name) {
         if (name != null) {
-            return "Hello, " + name + "!!";
+            return "Hello, " + name + "!!!";
         }
         return "Hello, gitActions!";
     }
