@@ -8,6 +8,10 @@ group = 'ru.pkozlov'
 version = '0.1'
 sourceCompatibility = '11'
 
+jar {
+    enabled = false
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
