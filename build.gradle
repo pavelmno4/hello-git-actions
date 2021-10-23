@@ -30,6 +30,11 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test'
 }
 
-test {
-    useJUnitPlatform()
+task deployHelloApp {
+    dependsOn ':hello-git-actions:bootJar'
+    doLast {
+        exec { commandLine 'docker-compose', 'up', '-d', '--build', '--remove-orphans', 'hello-app' }
+        exec { commandLine 'docker', 'image', 'prune', '-f', '--filter=dangling=true' }
+    }
 }
+
